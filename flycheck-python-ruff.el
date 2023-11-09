@@ -1,4 +1,4 @@
-;;; python-ruff.el --- Flycheck: Ruff integration -*- lexical-binding: t; -*-
+;;; flycheck-python-ruff.el --- Flycheck: Ruff integration -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023 Dmitry Kryuchkov <xelibrion@gmail.com>
 
@@ -69,4 +69,4 @@ See URL `http://pypi.python.org/pypi/ruff'."
   )
 
 (provide 'flycheck-python-ruff)
-;;; flycheck-ruff.el ends here
+;;; flycheck-python-ruff.el ends here
