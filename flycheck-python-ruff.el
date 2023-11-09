@@ -42,7 +42,7 @@
 (require 'flycheck)
 
 
-
+;;;###autoload
 (defun flycheck-python-ruff-setup ()
   (interactive)
   (flycheck-define-checker python-ruff
