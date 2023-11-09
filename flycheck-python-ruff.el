@@ -41,17 +41,13 @@
 
 (require 'flycheck)
 
-
-;;;###autoload
-(defun flycheck-python-ruff-setup ()
-  (interactive)
-  (flycheck-define-checker python-ruff
+(flycheck-define-checker python-ruff
     "A Python syntax and style checker using the ruff utility.
 To override the path to the ruff executable, set
 `flycheck-python-ruff-executable'.
 See URL `http://pypi.python.org/pypi/ruff'."
     :command ("ruff"
-              "--format=text"
+              "--output-format=text"
               (eval (when buffer-file-name
                       (concat "--stdin-filename=" buffer-file-name)))
               "-")
@@ -66,6 +62,13 @@ See URL `http://pypi.python.org/pypi/ruff'."
               (message (one-or-more not-newline))
               line-end))
     :modes python-mode)
+
+;;;###autoload
+(defun flycheck-python-ruff-setup ()
+  (interactive)
+  (add-to-list 'flycheck-checkers 'python-ruff)
+  (flycheck-select-checker 'python-ruff)
+  (flycheck-add-next-checker 'python-ruff 'python-mypy)
   )
 
 (provide 'flycheck-python-ruff)
